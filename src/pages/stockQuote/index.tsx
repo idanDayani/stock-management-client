@@ -18,7 +18,7 @@ import { NoStockFoundText } from "./components/noStockFoundText";
 
 const StockQuotePage = observer(() => {
   const { symbol = "" } = useParams<{ symbol: string }>();
-  const { stock, stockPriceChange, errorMessageGetData, isFetching } =
+  const { stockLatestQuote, stockPriceChange, errorMessageGetData, isFetching } =
     stockQuoteStore;
 
   useEffect(() => {
@@ -29,7 +29,7 @@ const StockQuotePage = observer(() => {
     return <Spinner />;
   }
 
-  if (errorMessageGetData || !stock?.latestQuote) {
+  if (errorMessageGetData || !stockLatestQuote?.latestQuote) {
     return <NoStockFoundText />;
   }
 
@@ -49,7 +49,7 @@ const StockQuotePage = observer(() => {
       pe,
       earningsAnnouncement,
     },
-  } = stock;
+  } = stockLatestQuote;
 
   const cardImage = getCardImageByChange(change!);
 

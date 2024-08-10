@@ -1,11 +1,10 @@
 import { makeAutoObservable } from "mobx";
 import { Stock } from "../../../interfaces/stockInterface";
 import { getLatestQuoteServer } from "../server/searchStockServer";
-import { getPriceChangeOverPeriodServer } from "../server/getPriceChangeOverPeriodServer";
 import { StockPriceChangeOverPeriod } from "../../../interfaces/stockPriceChangeOverPeriod";
 
 class StockQuoteStore {
-  stock: Stock | null = null;
+  stockLatestQuote: Stock | null = null;
   isFetching = false;
   stockPriceChange: StockPriceChangeOverPeriod | null = null;
   errorMessageGetData = "";
@@ -17,10 +16,9 @@ class StockQuoteStore {
   async getLatestQuote(symbol: string) {
     this.isFetching = true;
     try {
-      const resQuoate = await getLatestQuoteServer(symbol);
-      const resChange = await getPriceChangeOverPeriodServer(symbol);
-      this.stock = resQuoate;
-      this.stockPriceChange = resChange;
+      const { stockLatestQuote, stockPriceChange} = await getLatestQuoteServer(symbol);
+      this.stockLatestQuote = stockLatestQuote;
+      this.stockPriceChange = stockPriceChange;
     } catch (error) {
       this.errorMessageGetData = "Failed to fetch stocks";
     } finally {
