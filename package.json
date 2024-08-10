@@ -3,27 +3,28 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@testing-library/jest-dom": "^5.17.0",
-    "@testing-library/react": "^13.4.0",
-    "@testing-library/user-event": "^13.5.0",
-    "@types/jest": "^27.5.2",
-    "@types/node": "^16.18.104",
-    "@types/react": "^18.3.3",
-    "@types/react-dom": "^18.3.0",
-    "antd": "^5.20.0",
-    "autoprefixer": "^10.4.20",
-    "axios": "^1.7.3",
-    "mobx": "^6.13.1",
-    "mobx-react": "^9.1.1",
-    "mobx-react-lite": "^4.0.7",
-    "postcss": "^8.4.41",
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1",
-    "react-router-dom": "^6.26.0",
+    "@testing-library/jest-dom": "5.17.0",
+    "@testing-library/react": "13.4.0",
+    "@testing-library/user-event": "13.5.0",
+    "@types/jest": "27.5.2",
+    "@types/node": "16.18.104",
+    "@types/react": "18.3.3",
+    "@types/react-dom": "18.3.0",
+    "antd": "5.20.0",
+    "autoprefixer": "10.4.20",
+    "axios": "1.7.3",
+    "dompurify": "3.1.6",
+    "mobx": "6.13.1",
+    "mobx-react": "9.1.1",
+    "mobx-react-lite": "4.0.7",
+    "postcss": "8.4.41",
+    "react": "18.3.1",
+    "react-dom": "18.3.1",
+    "react-router-dom": "6.26.0",
     "react-scripts": "5.0.1",
-    "tailwindcss": "^3.4.9",
-    "typescript": "^4.9.5",
-    "web-vitals": "^2.1.4"
+    "tailwindcss": "3.4.9",
+    "typescript": "4.9.5",
+    "web-vitals": "2.1.4"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -48,5 +49,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@types/dompurify": "3.0.5"
   }
 }
