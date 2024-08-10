@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import React, { Suspense, useEffect } from "react";
 import { Card, Divider } from "antd";
 import { useParams } from "react-router-dom";
 import { observer } from "mobx-react-lite";
@@ -13,13 +13,20 @@ import EarningsAnnouncementRow from "./components/earningsAnnouncementRow";
 import StockTitle from "./components/stockTitle";
 import { BackButton } from "./components/backButton";
 import { getCardImageByChange } from "./logic/getCardImageByChange";
-import PriceChangeOverPeriod from "./components/priceChangeOverPeriod";
 import { NoStockFoundText } from "./components/noStockFoundText";
+
+const PriceChangeOverPeriod = React.lazy(
+  () => import("./components/priceChangeOverPeriod")
+);
 
 const StockQuotePage = observer(() => {
   const { symbol = "" } = useParams<{ symbol: string }>();
-  const { stockLatestQuote, stockPriceChange, errorMessageGetData, isFetching } =
-    stockQuoteStore;
+  const {
+    stockLatestQuote,
+    stockPriceChange,
+    errorMessageGetData,
+    isFetching,
+  } = stockQuoteStore;
 
   useEffect(() => {
     stockQuoteStore.getLatestQuote(symbol);
@@ -78,7 +85,9 @@ const StockQuotePage = observer(() => {
         <Divider />
         <EarningsAnnouncementRow earningsAnnouncement={earningsAnnouncement} />
       </Card>
-      <PriceChangeOverPeriod stockPriceChange={stockPriceChange} />
+      <Suspense fallback={<Spinner />}>
+        <PriceChangeOverPeriod stockPriceChange={stockPriceChange} />
+      </Suspense>
       <BackButton />
     </div>
   );

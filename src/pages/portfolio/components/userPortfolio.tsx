@@ -13,6 +13,7 @@ const UserPortfolio = observer(() => {
   };
 
   const handleStockClick = (symbol: string) => {
+    portfolioStore.resetSearchState();
     navigate(`/stock/${symbol}`);
   };
 
