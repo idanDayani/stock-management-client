@@ -21,7 +21,7 @@ const SearchStocks = observer(() => {
     <>
       <Title level={3}>Search for Stocks</Title>
       <Search
-        placeholder="Type stock symbol"
+        placeholder="Type stock symbol/name"
         enterButton
         onSearch={onSearch}
         onChange={onChange}

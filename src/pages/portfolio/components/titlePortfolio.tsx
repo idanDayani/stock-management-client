@@ -1,5 +1,5 @@
-import Title from "antd/es/typography/Title";
+import Text from "antd/es/typography/Text";
 
 export function TitlePortfolio() {
-    return <Title level={1}>Stock Management</Title>;
+    return <Text className="text-green-500 text-6xl font-bold">Stock Management</Text>;
 }

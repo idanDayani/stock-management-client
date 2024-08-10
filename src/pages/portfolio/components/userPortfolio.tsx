@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { observer } from "mobx-react-lite";
 import { portfolioStore } from "../logic/portfolioStore";
-import Title from "antd/es/typography/Title";
+import Text from "antd/es/typography/Text";
 import { Button, List } from "antd";
 
 const UserPortfolio = observer(() => {
@@ -17,13 +17,14 @@ const UserPortfolio = observer(() => {
     navigate(`/stock/${symbol}`);
   };
 
+
   return (
     <div className="mt-10">
-      <Title level={3}>Your Portfolio</Title>
+      <Text className="text-indigo-600 font-bold text-3xl">Your Portfolio</Text>
       <List
         bordered
         dataSource={portfolio}
-        renderItem={(item) => (
+        renderItem={(item, index) => (
           <List.Item
             actions={[
               <Button onClick={() => deleteStockFromPortfolio(item.symbol)}>
