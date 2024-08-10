@@ -11,12 +11,12 @@ export function RowCard(props: {
   return (
     <Row gutter={[16, 24]}>
       <Col span={12}>
-        <Text className="text-lg">{firtLabel}</Text>
-        <Text className="text-xl">{firstValue}</Text>
+        <Text className="text-lg font-semibold">{firtLabel}</Text>
+        <Text className="text-lg">{firstValue}</Text>
       </Col>
       <Col span={12}>
-        <Text className="text-lg">{secondLabel}</Text>
-        <Text className="text-xl">{secondValue}</Text>
+        <Text className="text-lg font-semibold">{secondLabel}</Text>
+        <Text className="text-lg">{secondValue}</Text>
       </Col>
     </Row>
   );

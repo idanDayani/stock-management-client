@@ -10,14 +10,14 @@ const CurrentPriceAndChange = observer(
     return (
       <Row gutter={[16, 24]}>
         <Col span={12}>
-          <Text className="text-lg">Current Price: </Text>
-          <Text className={`text-xl font-semibold ${stockChangeColor}`}>
+          <Text className="text-lg font-semibold">Current Price: </Text>
+          <Text className={`text-lg font-semibold ${stockChangeColor}`}>
             ${price}
           </Text>
         </Col>
         <Col span={12}>
-          <Text className="text-lg">Change: </Text>
-          <Text className={`text-xl font-semibold ${stockChangeColor}`}>
+          <Text className="text-lg font-semibold">Change: </Text>
+          <Text className={`text-lg font-semibold ${stockChangeColor}`}>
             {change} ({changesPercentage}%)
           </Text>
         </Col>

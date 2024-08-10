@@ -64,7 +64,7 @@ const StockQuotePage = observer(() => {
     <div className="min-h-screen bg-gradient-to-b from-white via-[#FCFAF0] via-[#FDF9EA] to-white	flex justify-center items-center p-3">
       <Card
         cover={
-          <img alt="stockCardImage" src={cardImage} style={{ height: 300 }} />
+          <img alt="stockCardImage" src={cardImage} style={{ height: 300 }}/>
         }
         hoverable
         style={{ width: 700 }}
