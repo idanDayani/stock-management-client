@@ -18,16 +18,14 @@ import { NoStockFoundText } from "./components/noStockFoundText";
 
 const StockQuotePage = observer(() => {
   const { symbol = "" } = useParams<{ symbol: string }>();
-  const { stock, isFetchingLastQuote, isFetchingPriceChangeOverPeriod, errorMessageGetData } = stockQuoteStore;
-
-  console.log({ isFetchingLastQuote, isFetchingPriceChangeOverPeriod,})
+  const { stock, stockPriceChange, errorMessageGetData, isFetching } =
+    stockQuoteStore;
 
   useEffect(() => {
     stockQuoteStore.getLatestQuote(symbol);
   }, [symbol]);
 
-  if (isFetchingLastQuote || isFetchingPriceChangeOverPeriod) {
-    console.log("In spinner")
+  if (isFetching) {
     return <Spinner />;
   }
 
@@ -80,7 +78,7 @@ const StockQuotePage = observer(() => {
         <Divider />
         <EarningsAnnouncementRow earningsAnnouncement={earningsAnnouncement} />
       </Card>
-      <PriceChangeOverPeriod symbol={symbol} />
+      <PriceChangeOverPeriod stockPriceChange={stockPriceChange} />
       <BackButton />
     </div>
   );

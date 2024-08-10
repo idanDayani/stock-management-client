@@ -6,8 +6,7 @@ import { StockPriceChangeOverPeriod } from "../../../interfaces/stockPriceChange
 
 class StockQuoteStore {
   stock: Stock | null = null;
-  isFetchingLastQuote = false;
-  isFetchingPriceChangeOverPeriod = false;
+  isFetching = false;
   stockPriceChange: StockPriceChangeOverPeriod | null = null;
   errorMessageGetData = "";
 
@@ -16,26 +15,16 @@ class StockQuoteStore {
   }
 
   async getLatestQuote(symbol: string) {
-    this.isFetchingLastQuote = true;
+    this.isFetching = true;
     try {
-      const res = await getLatestQuoteServer(symbol);
-      this.stock = res;
+      const resQuoate = await getLatestQuoteServer(symbol);
+      const resChange = await getPriceChangeOverPeriodServer(symbol);
+      this.stock = resQuoate;
+      this.stockPriceChange = resChange;
     } catch (error) {
       this.errorMessageGetData = "Failed to fetch stocks";
     } finally {
-      this.isFetchingLastQuote = false;
-    }
-  }
-
-  async getPriceChangeOverPeriod(symbol: string) {
-    this.isFetchingPriceChangeOverPeriod = true;
-    try {
-      const res = await getPriceChangeOverPeriodServer(symbol);
-      this.stockPriceChange = res;
-    } catch (error) {
-      this.errorMessageGetData = "Failed to fetch stocks";
-    } finally {
-      this.isFetchingPriceChangeOverPeriod = false;
+      this.isFetching = false;
     }
   }
 }
