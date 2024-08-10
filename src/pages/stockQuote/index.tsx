@@ -4,16 +4,16 @@ import { useParams } from "react-router-dom";
 import { observer } from "mobx-react-lite";
 import { stockQuoteStore } from "./logic/stockQuoteStore";
 import { Spinner } from "../../common/components/spinner";
-import CurrentPriceAndChange from "./components/currentPriceAndChange";
-import LowAndHighDay from "./components/lowAndHighDay";
-import LowAndHighYear from "./components/lowAndHighYear";
-import MarketCapAndVolume from "./components/marketCapAndVolume";
-import EPSAndPERatio from "./components/ePSAndPERatio";
-import EarningsAnnouncementRow from "./components/earningsAnnouncementRow";
 import StockTitle from "./components/stockTitle";
 import { BackButton } from "./components/backButton";
 import { getCardImageByChange } from "./logic/getCardImageByChange";
 import { NoStockFoundText } from "./components/noStockFoundText";
+import { CurrentPriceAndChange } from "./components/currentPriceAndChange";
+import { LowAndHighDay } from "./components/lowAndHighDay";
+import { LowAndHighYear } from "./components/lowAndHighYear";
+import { MarketCapAndVolume } from "./components/marketCapAndVolume";
+import { EPSAndPERatio } from "./components/ePSAndPERatio";
+import { EarningsAnnouncementRow } from "./components/earningsAnnouncementRow";
 
 const PriceChangeOverPeriod = React.lazy(
   () => import("./components/priceChangeOverPeriod")

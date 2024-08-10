@@ -1,7 +1,6 @@
-import { observer } from "mobx-react-lite";
 import { RowCard } from "../../../common/components/rowCard";
 
-const EPSAndPERatio = observer((props: { eps?: number; pe?: number }) => {
+export function EPSAndPERatio(props: { eps?: number; pe?: number }) {
   const { eps, pe } = props;
   return (
     <RowCard
@@ -11,6 +10,4 @@ const EPSAndPERatio = observer((props: { eps?: number; pe?: number }) => {
       secondValue={pe}
     />
   );
-});
-
-export default EPSAndPERatio;
+}
