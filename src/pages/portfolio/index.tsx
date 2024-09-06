@@ -12,7 +12,7 @@ const UserPortfolioPage = observer(() => {
   }, []);
 
   return (
-    <div className="p-4 bg-gradient-to-b from-white via-[#FCFAF0] via-[#FDF9EA] to-white">
+    <div className="p-4 bg-gradient-to-b from-[#FCFAF0] to-[#FDF9EA] min-h-screen">
       <TitlePortfolio />
       <SearchStocks />
       <SearchResult />

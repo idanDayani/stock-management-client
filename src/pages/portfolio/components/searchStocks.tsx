@@ -1,6 +1,6 @@
 import { portfolioStore } from "../logic/portfolioStore";
 import { useCallback, useState } from "react";
-import Title from "antd/es/typography/Title";
+import Text from "antd/es/typography/Text";
 import Search from "antd/es/input/Search";
 import { observer } from "mobx-react-lite";
 import DOMPurify from "dompurify";
@@ -25,8 +25,8 @@ const SearchStocks = observer(() => {
   }, []);
 
   return (
-    <>
-      <Title level={3}>Search for Stocks</Title>
+    <div className="flex flex-col mt-10">
+      <Text className="text-2xl font-bold">Search for Stocks</Text>
       <Search
         placeholder="Type stock symbol/name"
         enterButton
@@ -34,7 +34,7 @@ const SearchStocks = observer(() => {
         onChange={onChange}
         value={symbol}
       />
-    </>
+    </div>
   );
 });
 

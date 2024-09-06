@@ -20,7 +20,7 @@ const UserPortfolio = observer(() => {
 
   return (
     <div className="mt-10">
-      <Text className="text-indigo-600 font-bold text-3xl">Your Portfolio</Text>
+      <Text className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-orange-500">Your Portfolio</Text>
       <List
         bordered
         dataSource={portfolio}

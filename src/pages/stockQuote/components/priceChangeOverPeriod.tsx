@@ -12,7 +12,7 @@ function PriceChangeOverPeriod(props: {
   }
 
   return (
-    <Card className="w-full max-w-lg mx-auto shadow-lg mt-6">
+    <Card className="w-1/2 shadow-xl rounded-20px border-1">
       <Title level={3} className="mb-4">
         Stock Change Over Time
       </Title>
