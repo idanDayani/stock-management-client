@@ -45,18 +45,24 @@ class PortfolioStore {
 
   async addStockToPortfolio(stock: Stock) {
     this.searchStockResults = [];
-    if (this.portfolio.find((s) => s.symbol === stock.symbol)) {
-      this.errorMessageSearchStock = "Stock already in portfolio";
-      return;
+
+    if (!this.portfolio) {
+      this.portfolio = [stock];
+    } else {
+      if (this.portfolio.find((s) => s.symbol === stock.symbol)) {
+        this.errorMessageSearchStock = "Stock already in portfolio";
+        return;
+      }
+
+      if (this.portfolio.length >= this.MAX_OF_STOCKS_IN_PORTFOLIO) {
+        this.errorMessageSearchStock =
+          "You can't have more than 10 stocks in portfolio for this Plan, to upgrade your plan please contact idandayani@gmail.com";
+        return;
+      }
+
+      this.portfolio = this.portfolio.concat(stock);
     }
 
-    if (this.portfolio.length >= this.MAX_OF_STOCKS_IN_PORTFOLIO) {
-      this.errorMessageSearchStock =
-        "You can't have more than 10 stocks in portfolio for this Plan, to upgrade your plan please contact idandayani@gmail.com";
-      return;
-    }
-
-    this.portfolio = this.portfolio.concat(stock);
     this.successMessageAddStock = "Stock added to portfolio";
     await addStockToPortfolioServer(stock);
   }
